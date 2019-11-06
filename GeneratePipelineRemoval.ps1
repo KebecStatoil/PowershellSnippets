@@ -15,7 +15,7 @@ Write-Output $RemoveTriggers
 Write-Output ""
 
 $PipelineTemplate = "Remove-AzureRmDataFactoryV2Pipeline -ResourceGroupName `$rgname -DataFactoryName `$dfname -Name `"{0}`" -Verbose -Force -ErrorAction Stop;"
-$Pipelines = Get-ChildItem -Path (Join-Path $SolutionPath \DF\Pipelines) | ForEach-Object { $PipelineTemplate -f $_.BaseName } | Sort-Object -Descending
+$Pipelines = Get-ChildItem -Path (Join-Path $SolutionPath \DF\Pipelines) | ForEach-Object { $PipelineTemplate -f $_.BaseName }
 
 Write-Output $Pipelines
 
