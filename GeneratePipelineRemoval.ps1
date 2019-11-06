@@ -28,7 +28,7 @@ Write-Output $Datasets
 
 Write-Output ""
 
-$LinkedServiceTemplate = "try{{Remove-AzureRmDataFactoryV2LinkedService -ResourceGroupName `$rgname -DataFactoryName `$dfname -Name `"{0}`" -Verbose -Force -ErrorAction Stop;}}`r`n    catch{{Write-Warning `"Unable to remove __SafranProject_DF_SOURCE_ORA_DB_LINKED_SERVICE__. Most likely it is in use by other pipeline(s)`";}}"
+$LinkedServiceTemplate = "try{{Remove-AzureRmDataFactoryV2LinkedService -ResourceGroupName `$rgname -DataFactoryName `$dfname -Name `"{0}`" -Verbose -Force -ErrorAction Stop;}}`r`n    catch{{Write-Warning `"Unable to remove {0}. Most likely it is in use by other pipeline(s)`";}}"
 $LinkedServices = Get-ChildItem -Path (Join-Path $SolutionPath \DF\linkedServices) | ForEach-Object { $LinkedServiceTemplate -f $_.BaseName }
 
 Write-Output $LinkedServices
