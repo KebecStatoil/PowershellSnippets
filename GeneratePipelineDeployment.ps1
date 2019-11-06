@@ -15,7 +15,7 @@ Write-Output $Datasets
 Write-Output ""
 
 $PipelineTemplate = "Set-AzureRmDataFactoryV2Pipeline -ResourceGroupName `$rgname -DataFactoryName `$dfname -Name `"{0}`" -DefinitionFile `"`$workDir\Pipelines\{0}.json`" -Verbose -ErrorAction Stop;"
-$Pipelines = Get-ChildItem -Path (Join-Path $SolutionPath \DF\Pipelines) | ForEach-Object { $PipelineTemplate -f $_.BaseName }
+$Pipelines = Get-ChildItem -Path (Join-Path $SolutionPath \DF\Pipelines) | ForEach-Object { $PipelineTemplate -f $_.BaseName } | Sort-Object -Descending
 
 Write-Output $Pipelines
 
