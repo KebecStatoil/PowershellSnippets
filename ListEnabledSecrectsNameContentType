@@ -1,0 +1,1 @@
+$a = Get-AzKeyVaultSecret -VaultName DataEngineeringPLKVProd | Where-Object { $_.Enabled -eq $True } | ForEach-Object { $_.Name + $Tab + $_.ContentType }
