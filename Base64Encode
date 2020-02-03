@@ -1,0 +1,8 @@
+$keyFilePath = "c:\keys\private_key.pvk"; # File system path to the key file.
+$content = [System.IO.File]::ReadAllText($keyFilePath);
+$bytes  = [System.Text.Encoding]::UTF8.GetBytes($content);
+$base64Content = [System.Convert]::ToBase64String($bytes);
+
+Set-Clipboard $null;
+Set-Clipboard -Value $base64Content;
+Write-Host "`nConverted to base64 string and copied to clipboard.`n" -ForegroundColor Cyan -BackgroundColor Black;
