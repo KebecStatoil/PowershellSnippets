@@ -1,7 +1,4 @@
-#WIP
-$base64Content = "Xl4p"
-$decodedText = [System.Convert]::FromBase64String($base64Content);
-
-Set-Clipboard $null;
-Set-Clipboard -Value $base64Content;
-Write-Host "`nConverted to base64 string and copied to clipboard.`n" -ForegroundColor Cyan -BackgroundColor Black;
+$base64Content = "Xl4p";
+$bytes = [System.Convert]::FromBase64String($base64Content);
+$sDecodedString = [System.Text.Encoding]::UTF8.GetString($bytes);
+write-host "Encoded String:" $sDecodedString;
