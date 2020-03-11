@@ -1,0 +1,1 @@
+Start-AzDataFactoryV2Trigger -Name Safran_Turnaround_Full -ResourceGroupName ODET2RGProd -DataFactoryName ODET2DFProd
